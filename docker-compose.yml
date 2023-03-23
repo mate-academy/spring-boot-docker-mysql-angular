@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - ${DB_DOCKER_PORT}:3306
+
+  api:
+    container_name: api
+    image: spring-boot-api
+    build: .
+    env_file: ./.env
+    ports:
+      - ${LOCAL_PORT}:${DOCKER_PORT}
+      - "5005:5005"
+    depends_on:
+      - mysql
+    environment:
+      - spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+      - spring.datasource.url=jdbc:mysql://mysql:3306/${DB_NAME}?createDatabaseIfNotExist=true
+      - spring.datasource.username=${DB_USER}
+      - spring.datasource.password=${DB_PASSWORD}
+      - spring.jpa.hibernate.ddl-auto=validate
+      - spring.liquibase.change-log=classpath:db.changelog/db.changelog-master.yaml
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
