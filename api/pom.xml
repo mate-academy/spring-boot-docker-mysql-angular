@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>mate.academy.springboot</groupId>
-    <artifactId>aop</artifactId>
+    <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>aop</name>
+    <name>api</name>
     <description>spring-boot-aop-practice</description>
     <properties>
         <java.version>11</java.version>
