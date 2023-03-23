@@ -17,7 +17,7 @@ services:
   api:
     container_name: api
     image: spring-boot-api
-    build: .
+    build: api/.
     env_file: ./.env
     ports:
       - ${LOCAL_PORT}:${DOCKER_PORT}
@@ -32,3 +32,12 @@ services:
       - spring.jpa.hibernate.ddl-auto=validate
       - spring.liquibase.change-log=classpath:db.changelog/db.changelog-master.yaml
       - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build: frontend/.
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
