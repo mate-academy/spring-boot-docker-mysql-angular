@@ -41,3 +41,7 @@ services:
       - "4200:4200"
     depends_on:
       - api
+    volumes:
+      - ./frontend:/usr/src/app:delegated
+      - /usr/src/app/node_modules
+      - /usr/src/app/.angular
