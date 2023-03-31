@@ -41,10 +41,10 @@ class ProductControllerTest {
         List<Product> mockProducts = List.of(
                 new Product(1L, mockProductName, BigDecimal.valueOf(mockPrice), mockCategory)
         );
-        Mockito.when(productService.findAll()).thenReturn(mockProducts);
+        Mockito.when(productService.getByCategoryId(1L)).thenReturn(mockProducts);
 
         RestAssuredMockMvc.when()
-                .get("/products")
+                .get("/products?categoryId=1")
                 .then()
                 .statusCode(200)
                 .body("size()", Matchers.equalTo(1))

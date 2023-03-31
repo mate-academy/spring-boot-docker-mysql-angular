@@ -7,4 +7,6 @@ public interface CategoryService {
     List<Category> findAll();
 
     Category save(Category category);
+
+    void delete(Long id);
 }

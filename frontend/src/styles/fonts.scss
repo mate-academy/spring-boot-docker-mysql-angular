@@ -1,0 +1,9 @@
+%primary {
+  font-family: system-ui;
+}
+
+%primary-16-500 {
+  @extend %primary;
+  font-size: 16px;
+  font-weight: 500;
+}

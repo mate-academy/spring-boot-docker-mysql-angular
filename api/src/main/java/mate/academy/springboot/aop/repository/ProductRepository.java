@@ -1,5 +1,6 @@
 package mate.academy.springboot.aop.repository;
 
+import java.util.List;
 import java.util.Optional;
 import mate.academy.springboot.aop.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findTheMostExpensiveByCategoryId(
             @Param("categoryId") Long categoryId
     );
+
+    List<Product> getByCategoryId(Long categoryId);
 }

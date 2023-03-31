@@ -3,3 +3,7 @@ databaseChangeLog:
       file: /db.changelog/changes/create-category-table.sql
   - include:
       file: /db.changelog/changes/create-product-table.sql
+  - include:
+      file: /db.changelog/changes/inject-initial-categories.sql
+  - include:
+      file: /db.changelog/changes/inject-initial-products.sql

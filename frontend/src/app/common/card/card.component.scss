@@ -1,0 +1,25 @@
+@import "src/styles/color-theme";
+@import "src/styles/fonts";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+  background: $primary;
+  color: $white-text-color;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  @extend %primary-16-500;
+
+  &:hover {
+    background: $primary-on-hover;
+  }
+
+  &:hover {
+    background: $primary-on-active;
+  }
+}

@@ -2,6 +2,7 @@ package mate.academy.springboot.aop.service;
 
 import org.springframework.stereotype.Component;
 
+// This service was created to test aspect classes collected in the "aspect" package.
 @Component
 public class TimeWasteService {
     public void wasteFiveSecond() {

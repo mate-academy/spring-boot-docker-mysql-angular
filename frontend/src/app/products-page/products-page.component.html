@@ -1,0 +1,12 @@
+<header>
+  <h1>
+    Products
+  </h1>
+</header>
+
+<div class="products">
+  <app-card *ngFor="let product of products$ | async">
+    <app-product-card class="products__product_card" [product]="product">
+    </app-product-card>
+  </app-card>
+</div>

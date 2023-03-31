@@ -1,8 +1,8 @@
---liquibase formatted sql
---changeset <konstantin.nikiforov>:<create-client-table>
+-- liquibase formatted sql
+-- changeset <konstantin.nikiforov>:<create-product-table>
 
 CREATE TABLE IF NOT EXISTS product (
-    id bigint NOT NULL,
+    id bigint NOT NULL AUTO_INCREMENT,
     name varchar(256) NOT NULL,
     price decimal(19,2) NOT NULL,
     category_id bigint,
@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS product (
         ON DELETE NO ACTION
 );
 
---rollback DROP TABLE IF EXISTS product;
+-- rollback DROP TABLE IF EXISTS product;

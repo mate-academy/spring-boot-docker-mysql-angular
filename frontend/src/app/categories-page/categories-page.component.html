@@ -1,0 +1,31 @@
+<header>
+  <h1>
+    Categories
+  </h1>
+</header>
+
+<div class="categories">
+  <app-card
+    [routerLink]="category.id + '/products'"
+    routerLinkActive="categories__category-card--active"
+    class="categories__category-card"
+    *ngFor="let category of categories$ | async"
+  >
+    {{ category.name }}
+    <app-garbage-bit-icon (click)="deleteCategory($event, category)"></app-garbage-bit-icon>
+  </app-card>
+
+  <app-card class="add-category-form">
+    <input
+      class="add-category-form__category-name-input"
+      [formControl]="categoryNameFormControl"
+      (keydown.enter)="addCategory()">
+    <button
+      class="add-category-form__add-category-button"
+      [textContent]="'Add category'"
+      (click)="addCategory()"
+    ></button>
+  </app-card>
+</div>
+
+<router-outlet></router-outlet>
